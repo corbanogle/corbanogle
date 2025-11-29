@@ -2,7 +2,7 @@
 **Cloud Security | SOC Analyst | Pentesting | Python Automation**
 
 🔐 Security-focused IT professional transitioning from IT Technician to SOC Analyst.  
-☁️ Certified: ISC2 CC | Security+ | Network+ | A+ | CySA+ (in progress)  
+☁️ Certified: ISC2 CC | Security+ | Network+ | AWS CCP | AZ-900 (in progress)  
 💻 Skills: AWS | Linux | SIEM | F5 | Python | Java | Flask | Automation | Networking  
 
 ---
