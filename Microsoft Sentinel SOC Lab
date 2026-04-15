@@ -1,0 +1,51 @@
+Overview
+
+This project demonstrates the design and implementation of a Security Operations Center (SOC) detection and monitoring environment using Microsoft Sentinel.
+
+The lab simulates real-world attack scenarios including privilege escalation, brute force authentication attempts, and suspicious PowerShell activity. Detection rules are built using Kusto Query Language (KQL) and mapped to MITRE ATT&CK techniques.
+
+🏗️ Architecture
+Azure Virtual Machine (Windows)
+Log ingestion via Azure Monitor Agent (AMA)
+Log Analytics Workspace
+Microsoft Sentinel (SIEM)
+🔍 Key Features
+Centralized log collection from Windows VM
+Custom detection rules using KQL
+Incident generation and investigation workflows
+MITRE ATT&CK mapping for all detections
+🚨 Detection Rules
+Detection	Event ID	Description
+Privilege Escalation	4672	Special privileges assigned
+Brute Force	4625	Multiple failed login attempts
+Account Creation	4720	New user account created
+PowerShell Abuse	N/A	Suspicious command execution
+🧠 MITRE ATT&CK Mapping
+Technique	Description
+T1068	Privilege Escalation
+T1078	Valid Accounts
+T1110	Brute Force
+T1136	Create Account
+T1059.001	PowerShell
+🧪 Incident Investigation
+
+Example investigation included:
+
+Privilege escalation detection
+Log correlation
+Timeline analysis
+Classification (True Positive / False Positive)
+🚀 Skills Demonstrated
+SIEM Engineering (Microsoft Sentinel)
+KQL Query Development
+Threat Detection Engineering
+Incident Response & Triage
+MITRE ATT&CK Mapping
+📈 Outcome
+
+This lab simulates a Tier 1 SOC analyst workflow from detection to investigation and documentation.
+
+🔗 Future Improvements
+Integrate Active Directory attack simulation
+Add threat intelligence feeds
+Automate response with playbooks
