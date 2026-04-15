@@ -49,3 +49,95 @@ This lab simulates a Tier 1 SOC analyst workflow from detection to investigation
 Integrate Active Directory attack simulation
 Add threat intelligence feeds
 Automate response with playbooks
+2. architecture.md
+Writing
+🏗️ Architecture Overview
+Components
+1. Azure Virtual Machine
+Windows-based VM used to generate security logs
+2. Azure Monitor Agent (AMA)
+Collects and forwards logs to Log Analytics Workspace
+3. Log Analytics Workspace
+Central storage for logs
+Queried using KQL
+4. Microsoft Sentinel
+SIEM platform for:
+Detection rules
+Incident creation
+Investigation workflows
+🔄 Data Flow
+
+VM → Azure Monitor Agent → Log Analytics Workspace → Microsoft Sentinel
+
+🔐 Log Types Collected
+SecurityEvent logs
+Authentication events
+Process execution logs
+📄 3. detections/*.kql
+privilege_escalation.kql
+Writing
+
+SecurityEvent
+| where EventID == 4672
+| summarize EventCount = count() by Account, Computer, bin(TimeGenerated, 5m)
+| where EventCount > 0
+
+brute_force.kql
+Writing
+
+SecurityEvent
+| where EventID == 4625
+| summarize FailedLogins = count() by Account, bin(TimeGenerated, 5m)
+| where FailedLogins >= 5
+
+powershell_detection.kql
+Writing
+
+SecurityEvent
+| where Process has "powershell"
+| where CommandLine contains "-enc"
+or CommandLine contains "Invoke-Expression"
+
+account_creation.kql
+Writing
+
+SecurityEvent
+| where EventID == 4720
+| summarize NewAccounts = count() by Account, bin(TimeGenerated, 10m)
+| where NewAccounts > 0
+
+📄 4. investigations/incident_report_privilege_escalation.md
+Writing
+🚨 Incident Report: Privilege Escalation
+📌 Summary
+
+An alert was triggered indicating that special privileges were assigned to a user account.
+
+🕒 Timeline
+Detection Time: [Insert Time]
+Event ID: 4672
+Host: [VM Name]
+User: testuser
+🔍 Investigation Steps
+Reviewed alert in Microsoft Sentinel
+Queried SecurityEvent logs
+Correlated activity across timeframe
+Identified privilege escalation behavior
+📊 Findings
+User "testuser" was granted elevated privileges
+Activity was generated as part of lab simulation
+✅ Classification
+
+True Positive (Simulated Attack)
+
+🛡️ Response
+No action required (lab environment)
+Detection rule validated successfully
+📄 5. mitre_mapping/mitre_mapping.md
+Writing
+🧠 MITRE ATT&CK Mapping
+Detection	Event ID	MITRE Technique	Description
+Privilege Escalation	4672	T1068 / T1078	Elevated privileges assigned
+Brute Force	4625	T1110	Multiple failed login attempts
+Account Creation	4720	T1136	New account creation
+PowerShell Abuse	N/A	T1059.001	Script execution
