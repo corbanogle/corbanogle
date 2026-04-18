@@ -1,0 +1,96 @@
+# 🔐 Incident Report: Active Directory Attack Simulation
+
+## 📌 Summary
+
+A simulated attack was conducted against a Windows Server environment integrated with Microsoft Sentinel. The attack involved a password spray attempt followed by a successful login and privilege escalation to the Domain Admins group. Detection rules successfully identified and generated alerts for each stage of the attack.
+
+---
+
+## 🕒 Timeline of Events
+
+| Time (UTC) | Event                                                             |
+| ---------- | ----------------------------------------------------------------- |
+| T0         | Multiple failed login attempts detected (Event ID 4625)           |
+| T1         | Successful login observed after repeated failures (Event ID 4624) |
+| T2         | User added to Domain Admins group (Event ID 4728)                 |
+
+---
+
+## 🔍 Detection Details
+
+### 1. Password Spray Detection
+
+* **Event ID:** 4625
+* **Description:** Multiple failed login attempts within a short time window
+* **Rule Name:** AD Password Spray Detection
+
+---
+
+### 2. Suspicious Login Activity
+
+* **Event ID:** 4624
+* **Description:** Successful login following repeated failed attempts
+* **Rule Name:** Failed → Successful Login Correlation
+
+---
+
+### 3. Privilege Escalation Detection
+
+* **Event ID:** 4728
+* **Description:** User added to Domain Admins group
+* **Rule Name:** Domain Admin Privilege Escalation
+
+---
+
+## 🧠 MITRE ATT&CK Mapping
+
+| Technique            | ID    | Description                               |
+| -------------------- | ----- | ----------------------------------------- |
+| Brute Force          | T1110 | Password spraying activity                |
+| Valid Accounts       | T1078 | Successful login using valid credentials  |
+| Account Manipulation | T1098 | Privilege escalation via group membership |
+
+---
+
+## 🔎 Investigation Findings
+
+Log analysis confirmed a clear attack chain:
+
+1. Repeated failed authentication attempts targeting a user account
+2. Eventual successful authentication using valid credentials
+3. Immediate escalation of privileges to Domain Admin level
+
+All activities originated from the same host, indicating a controlled simulation rather than a distributed attack.
+
+---
+
+## ⚠️ Incident Classification
+
+* **Type:** Privilege Escalation / Credential Attack
+* **Severity:** High
+* **Classification:** True Positive (Simulated Attack)
+
+---
+
+## 🛡️ Response Actions
+
+* Detection rules successfully triggered alerts
+* Incident reviewed and validated in Microsoft Sentinel
+* No remediation required (lab environment)
+
+---
+
+## 📈 Recommendations
+
+* Implement account lockout policies to prevent brute force attempts
+* Enable multi-factor authentication (MFA) for privileged accounts
+* Monitor group membership changes in real time
+* Tune detection thresholds for production environments
+
+---
+
+## ✅ Conclusion
+
+The lab successfully demonstrated the ability to detect, analyze, and investigate a multi-stage Active Directory attack using Microsoft Sentinel. This exercise highlights core SOC skills including log analysis, detection engineering, and incident response.
+
+---
