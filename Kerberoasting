@@ -1,0 +1,115 @@
+OVERVIEW
+This project demonstrates the detection and investigation of Kerberos-based attack activity within an Active Directory environment using Microsoft Sentinel. The lab simulates credential abuse behavior associated with Kerberoasting techniques and implements detection logic using Kusto Query Language (KQL).
+
+The objective of this project was to gain hands-on experience with:
+
+Active Directory administration
+Kerberos authentication logging
+Detection engineering in Microsoft Sentinel
+Incident investigation workflows
+MITRE ATT&CK mapping
+
+LAB ARCHITECTURE
+| Component                                | Purpose                              |
+| ---------------------------------------- | ------------------------------------ |
+| Windows Server 2025                      | Active Directory Domain Controller   |
+| Active Directory Domain Services (AD DS) | Identity management                  |
+| Microsoft Sentinel                       | SIEM and detection platform          |
+| Log Analytics Workspace                  | Centralized log ingestion            |
+| PowerShell                               | Attack simulation and administration |
+
+Environment Setup
+Azure Virtual Machine
+
+A Windows Server 2025 Datacenter VM was deployed in Microsoft Azure.
+
+CONFIGURATION
+VM Size: Standard B2s
+OS: Windows Server 2025 Datacenter - x64 Gen2
+RDP enabled for remote administration
+2. Active Directory Installation
+
+The VM was promoted to a Domain Controller using:
+
+Active Directory Domain Services (AD DS)
+New forest:
+lab.local
+3. User Creation
+
+Test accounts were created for authentication and attack simulation.
+
+net user user1 Password123! /add
+net user user2 Password123! /add
+🔧 Logging Configuration
+
+Audit policies were enabled to capture Kerberos and authentication activity.
+
+auditpol /set /category:"Account Logon" /success:enable /failure:enable
+auditpol /set /category:"Logon/Logoff" /success:enable /failure:enable
+
+Attack Simulation
+
+klist purge
+
+runas /user:user1 cmd
+Inside the new command prompt session:
+
+dir \\localhost\c$
+This generated Kerberos service ticket requests associated with Event ID 4769.
+
+DETECTION ENGINEERING
+Microsoft Sentinel Detection Query
+
+The following KQL query was used to identify Kerberos service ticket activity:
+
+SecurityEvent
+| where EventID == 4769
+| summarize count() by Account, ServiceName, bin(TimeGenerated, 5m)
+
+ANALYTICS RULE
+A scheduled analytics rule was created in Microsoft Sentinel with the following configuration:
+
+Setting	Value
+Rule Name	Kerberos Ticket Detection
+Severity	High
+Frequency	Every 5 minutes
+MITRE Technique	T1558
+
+Investigation Workflow
+
+Generated incidents were investigated in Microsoft Sentinel by reviewing:
+
+Kerberos authentication events
+User activity timelines
+Service ticket request patterns
+
+Investigation query:
+
+SecurityEvent
+| where Account == "user1"
+| order by TimeGenerated desc
+🧠 MITRE ATT&CK Mapping
+Technique	ID
+Steal or Forge Kerberos Tickets	T1558
+Valid Accounts	T1078
+Remote Services	T1021
+📈 Skills Demonstrated
+Detection Engineering
+SIEM Administration
+KQL Query Development
+Active Directory Security
+Kerberos Authentication Analysis
+Threat Detection
+Incident Investigation
+MITRE ATT&CK Mapping
+✅ Outcome
+
+This lab successfully demonstrated the ability to:
+
+Generate Kerberos authentication activity
+Detect Kerberos ticket events in Microsoft Sentinel
+Create analytics rules and alerts
+Investigate authentication-related incidents
+Map attack behavior to MITRE ATT&CK techniques
+
+The project provided practical experience with identity-based threat detection workflows commonly used in SOC and cloud security environments.
