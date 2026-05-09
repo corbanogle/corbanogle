@@ -1,0 +1,134 @@
+# Hi, I'm Corban Ogle 👋  
+
+📌 Overview
+Cybersecurity professional with hands-on experience across Security Operations (SOC), Detection Engineering, Networking, and Cloud Security. This portfolio showcases practical labs, projects, and implementations demonstrating real-world security capabilities, aligned with industry frameworks and modern threat landscapes.
+
+I am actively transitioning from IT Technician → SOC Analyst → Cloud Security Engineer, with a focus on detection, automation, and secure cloud architecture.
+
+🎓 Certifications
+ISC2 Certified in Cybersecurity (CC)
+CompTIA Security+
+CompTIA Network+
+AWS Certified Cloud Practitioner (CCP)
+Microsoft Azure Fundamentals (AZ-900)
+Microsoft SC-200 (in progress / completed depending on timing)
+
+🧪 Featured Projects & Labs
+🔍 Security Operations & Detection Engineering
+Azure Sentinel (Microsoft Sentinel) Labs
+Built custom KQL queries for anomaly detection (e.g., Azure AD sign-in analysis)
+Developed alert rules and analytics pipelines
+Created time-series visualizations for threat hunting
+Threat Detection Lab
+Simulated brute-force and suspicious login activity
+Tuned detection logic to reduce false positives
+Mapped detections to MITRE ATT&CK framework
+Port Scanner (Python)
+Developed a custom TCP port scanner
+Demonstrated understanding of network enumeration and reconnaissance techniques
+
+🌐 Networking & Infrastructure Security
+Active Directory Lab (Domain Controller Setup)
+Configured domain services, authentication, and group policy
+Troubleshot domain promotion and credential issues
+Implemented secure administrative practices
+VLAN & Switch Configuration
+Configured trunk ports and VLAN segmentation
+Ensured inter-VLAN communication without using VLAN 1 as management
+Strengthened network isolation and access control
+Firewall & Load Balancing (F5 Exposure)
+Worked with enterprise-grade traffic management
+Understood application-layer filtering and routing logic
+
+☁️ Cloud Security
+Azure Security Monitoring
+Integrated logs into Microsoft Sentinel
+Monitored cloud identities and access patterns
+Investigated suspicious cloud-based activity
+Cloud Risk & Control Mapping Project (Ultra-Enablers INC)
+Conducted risk assessments and control mapping
+Evaluated vendor security posture
+Designed monitoring and implementation strategies
+Cloud Authentication & Access Control
+Configured identity-based access systems
+Analyzed authentication flows and misconfigurations
+
+🔐 Cryptography & Security Fundamentals
+Applied concepts of:
+Symmetric vs Asymmetric encryption
+Hashing (integrity verification)
+Secure authentication mechanisms
+Implemented secure coding practices in Python-based projects
+
+📊 Governance, Risk, and Compliance (GRC)
+Risk Assessment & Control Mapping
+Identified threats, vulnerabilities, and impacts
+Mapped controls to mitigate organizational risk
+Security Operations Planning
+Designed monitoring strategies aligned with business risk
+Evaluated third-party/vendor security risks
+Familiar with frameworks and concepts from:
+NIST
+ISO 27001 (conceptual alignment)
+Risk-based security planning
+
+🧰 Automation & Development
+Python Security Tools
+Port Scanner
+Keylogger (educational use)
+URL Shortener (Flask-based web app)
+Security Automation (In Progress)
+Building scripts to automate:
+Log parsing
+Alert generation
+Threat detection workflows
+
+🛠️ Technical Skills
+🔹 Security Operations
+SIEM: Microsoft Sentinel
+KQL (Kusto Query Language)
+Log analysis & threat hunting
+Incident detection & response
+🔹 Networking
+TCP/IP, DNS, DHCP
+VLANs, subnetting, switching
+Network segmentation & traffic analysis
+🔹 Cloud Security
+Azure fundamentals
+AWS fundamentals
+Identity & access management (IAM)
+Cloud monitoring & logging
+🔹 Detection Engineering
+Alert rule creation
+MITRE ATT&CK mapping
+Behavioral analytics
+🔹 Cryptography
+Encryption fundamentals
+Hashing algorithms
+Secure authentication flows
+🔹 GRC
+Risk assessment
+Control mapping
+Security policy alignment
+🔹 Programming & Tools
+Python
+Java
+R
+Linux / Windows
+Visual Studio Code
+Microsoft Office
+
+Current Focus
+Advancing cloud security engineering skills (AWS & Azure)
+Building security automation projects with Python
+Deepening expertise in detection engineering & SIEM optimization
+Preparing for advanced cloud/security certifications
+
+My Portfolio
+https://olympus.mygreatlearning.com/eportfolio
+
+📬 Contact
+Open to opportunities in:
+SOC Analyst roles
+Cloud Security roles
+System Administration roles
